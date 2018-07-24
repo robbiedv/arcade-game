@@ -38,16 +38,31 @@ Enemy.prototype.render = function() {
 
 class Hero {
 	constructor() {
-		this.x = 200;
-		this.y = 420;
-		this.sprite = 'images/char-boy.png';
+		this.horz = 101;
+		this.vert = 83;
+		this.xOrigin = this.horz * 2;
+		this.yOrigin = this.vert * 5 - 10;
+		this.x = this.xOrigin;
+		this.y = this.yOrigin;
+		this.sprite = 'images/char-horn-girl.png';
 	}
 	render() {
 		 ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 	}
+	handleInput(input) {
+		if (input === 'left') {
+			this.x -= 101;
+		} else if (input === 'right') {
+			this.x += 101;
+		} else if (input === 'up') {
+			this.y -= 83;
+		} else if (input === 'down') {
+			this.y += 83;
+		}
+	}
 } 
 
-const player = new Hero();
+
 
 				// METHODS
 						// update()
@@ -56,14 +71,13 @@ const player = new Hero();
 								// check for game won
 										// if hero position on top tile 
 						// render()
-								// draw hero on current x y coord
-
-						// handleInput() 
+								// draw hero on current x y coor 
 								// update hero x y position to match keystrokes
 						//resetHero
 								// on collision or game won reset hero to original position
 
 // Now instantiate your objects.
+	const player = new Hero();
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
