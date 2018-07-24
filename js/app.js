@@ -2,6 +2,9 @@
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
+	
+		// x position
+		// y position
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -14,6 +17,12 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+		
+		// if enemy pos is within canvas
+				// move right
+				// change x pos by * dt
+		// else 
+				// reset enemy pos to original pos
 };
 
 // Draw the enemy on the screen, required method for game
@@ -25,12 +34,33 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
+// hero class
+		// CONSTRUCTOR
+				// PROPERTIES
+						// x position
+						// y position
+						// hero image
+				// METHODS
+						// update()
+								// check for collision
+										// if player position collide with enemy
+								// check for game won
+										// if hero position on top tile 
+						// render()
+								// draw hero on current x y coord
+						// handleInput() 
+								// update hero x y position to match keystrokes
+						//resetHero
+								// on collision or game won reset hero to original position
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+// new hero object
 
+// init allEnemies array
+// create and push new enemy to allEnemies array
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
