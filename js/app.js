@@ -1,13 +1,7 @@
 // Enemies our player must avoid
 var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-	
-		// x position
-		// y position
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+		this.x = 0;
+		this.y = 0;
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -50,13 +44,24 @@ class Hero {
 		 ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 	}
 	handleInput(input) {
+		// moves player left and sets left side boundry
 		if (input === 'left') {
+			if (this.x > 0) {
 			this.x -= 101;
+			}
+			// moves player right and sets right side boundry
 		} else if (input === 'right') {
+			if (this.x < this.horz * 4) {
 			this.x += 101;
+		}
+			// moves player up and sets top boundery
 		} else if (input === 'up') {
+			if (this.y > 0) {
 			this.y -= 83;
+			}
+			// moves player down and sets bottom boundry
 		} else if (input === 'down') {
+			if (this.y < this.vert * 4 )
 			this.y += 83;
 		}
 	}
@@ -78,7 +83,10 @@ class Hero {
 
 // Now instantiate your objects.
 	const player = new Hero();
+	const enemy1 = new Enemy();
 // Place all enemy objects in an array called allEnemies
+let allEnemies = [];
+allEnemies.push(enemy1);
 // Place the player object in a variable called player
 
 
