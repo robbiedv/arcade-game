@@ -1,8 +1,10 @@
 // Enemies our player must avoid
-var Enemy = function() {
-		this.x = 0;
-		this.y = 0;
+var Enemy = function(x, y) {
+		this.x = x;
+		this.y = y;
+		this.xOrigin = - 100;
     this.sprite = 'images/enemy-bug.png';
+		this.boundary = 505; 
 };
 
 // Update the enemy's position, required method for game
@@ -12,11 +14,11 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
 		
-		// if enemy pos is within canvas
-				// move right
-				// change x pos by * dt
-		// else 
-				// reset enemy pos to original pos
+		if (this.x < this.boundary) {
+			this.x += 200 * dt;
+		} else if (this.x > this.boundary) {
+			this.x = this.xOrigin
+		}
 };
 
 // Draw the enemy on the screen, required method for game
@@ -44,22 +46,22 @@ class Hero {
 		 ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 	}
 	handleInput(input) {
-		// moves player left and sets left side boundry
+		// moves player left and sets left side boundary
 		if (input === 'left') {
 			if (this.x > 0) {
 			this.x -= 101;
 			}
-			// moves player right and sets right side boundry
+			// moves player right and sets right side boundary
 		} else if (input === 'right') {
 			if (this.x < this.horz * 4) {
 			this.x += 101;
 		}
-			// moves player up and sets top boundery
+			// moves player up and sets top boundaryery
 		} else if (input === 'up') {
 			if (this.y > 0) {
 			this.y -= 83;
 			}
-			// moves player down and sets bottom boundry
+			// moves player down and sets bottom boundary
 		} else if (input === 'down') {
 			if (this.y < this.vert * 4 )
 			this.y += 83;
@@ -83,10 +85,12 @@ class Hero {
 
 // Now instantiate your objects.
 	const player = new Hero();
-	const enemy1 = new Enemy();
+	const enemy1 = new Enemy(-100, 55);
+	const enemy2 = new Enemy(-100, 141);
+	const enemy3 = new Enemy(-100, 227);
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [];
-allEnemies.push(enemy1);
+allEnemies.push(enemy1, enemy2, enemy3);
 // Place the player object in a variable called player
 
 
