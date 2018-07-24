@@ -35,11 +35,20 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 // hero class
-		// CONSTRUCTOR
-				// PROPERTIES
-						// x position
-						// y position
-						// hero image
+
+class Hero {
+	constructor() {
+		this.x = 200;
+		this.y = 420;
+		this.sprite = 'images/char-boy.png';
+	}
+	render() {
+		 ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+	}
+} 
+
+const player = new Hero();
+
 				// METHODS
 						// update()
 								// check for collision
@@ -48,6 +57,7 @@ Enemy.prototype.render = function() {
 										// if hero position on top tile 
 						// render()
 								// draw hero on current x y coord
+
 						// handleInput() 
 								// update hero x y position to match keystrokes
 						//resetHero
@@ -57,7 +67,7 @@ Enemy.prototype.render = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-// new hero object
+
 
 // init allEnemies array
 // create and push new enemy to allEnemies array
