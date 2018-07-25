@@ -1,10 +1,12 @@
 // Enemies our player must avoid
-var Enemy = function(x, y) {
+var Enemy = function(x, y, speed) {
 		this.x = x;
 		this.y = y;
+		this.size = 60;
+		this.speed = speed;
 		this.xOrigin = - 100;
     this.sprite = 'images/enemy-bug.png';
-		this.boundary = 505; 
+		this.boundary = 500; 
 };
 
 // Update the enemy's position, required method for game
@@ -15,7 +17,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
 		
 		if (this.x < this.boundary) {
-			this.x += 200 * dt;
+			this.x += this.speed * dt;
 		} else if (this.x > this.boundary) {
 			this.x = this.xOrigin
 		}
@@ -34,10 +36,11 @@ Enemy.prototype.render = function() {
 
 class Hero {
 	constructor() {
-		this.horz = 101;
+		this.horiz = 101;
 		this.vert = 83;
-		this.xOrigin = this.horz * 2;
-		this.yOrigin = this.vert * 5 - 10;
+		this.size = 60;
+		this.xOrigin = this.horiz * 2;
+		this.yOrigin = this.vert * 5 - 20;
 		this.x = this.xOrigin;
 		this.y = this.yOrigin;
 		this.sprite = 'images/char-horn-girl.png';
@@ -53,7 +56,7 @@ class Hero {
 			}
 			// moves player right and sets right side boundary
 		} else if (input === 'right') {
-			if (this.x < this.horz * 4) {
+			if (this.x < this.horiz * 4) {
 			this.x += 101;
 		}
 			// moves player up and sets top boundaryery
@@ -67,12 +70,18 @@ class Hero {
 			this.y += 83;
 		}
 	}
+	
+	update() {
+		for(let enemy of allEnemies) {
+			if(this.y === enemy.y && this.x < enemy.x + enemy.size && enemy.x < this.x + this.size) {
+				this.x = this.xOrigin;
+				this.y = this.yOrigin;
+			}
+		}
+	}
 } 
 
 
-
-				// METHODS
-						// update()
 								// check for collision
 										// if player position collide with enemy
 								// check for game won
@@ -85,12 +94,13 @@ class Hero {
 
 // Now instantiate your objects.
 	const player = new Hero();
-	const enemy1 = new Enemy(-100, 55);
-	const enemy2 = new Enemy(-100, 141);
-	const enemy3 = new Enemy(-100, 227);
+	const enemy1 = new Enemy(-100, 63, 200);
+	const enemy2 = new Enemy(-100, 146, 250);
+	const enemy3 = new Enemy(-300, 146, 250);
+	const enemy4 = new Enemy(-100, 229, 100);
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [];
-allEnemies.push(enemy1, enemy2, enemy3);
+allEnemies.push(enemy1, enemy2, enemy3, enemy4);
 // Place the player object in a variable called player
 
 
