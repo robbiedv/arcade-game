@@ -1,6 +1,16 @@
-frontend-nanodegree-arcade-game
-===============================
+# Arcade Game
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Udacity's Frontend Nanodegree Arcade Game
+=========================================
+## Where to Play
+You can play the game by downloading the file, unzipping and then loading the 'index.html' file in your browser of choice!
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## How to Play
+The point of the game is to win. You win by succesfully crossing the stone path to the river without being hit by the ladybugs.
+If hit, your player will automatically reset to their starting position.
+
+## Game Instructions
+Using the arrow keys, guide your player acros the stone path to the river without being hit.
+
+## Aknowledgments
+A special thanks to [Matthew Cranford] (https://matthewcranford.com/). His walkthrough on this project helped me immensly by pointing me in the right direction.
