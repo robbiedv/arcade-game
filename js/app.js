@@ -48,6 +48,7 @@ class Hero {
 	render() {
 		 ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 	}
+	
 	handleInput(input) {
 		// moves player left and sets left side boundary
 		if (input === 'left') {
@@ -70,18 +71,42 @@ class Hero {
 			this.y += 83;
 		}
 	}
-	
+		
 	update() {
-		for(let enemy of allEnemies) {
+	  	for(let enemy of allEnemies) {
 			if(this.y === enemy.y && this.x < enemy.x + enemy.size && enemy.x < this.x + this.size) {
+				this.x = this.xOrigin;
+				this.y = this.yOrigin;
+			} else if (this.y < 63) {
+			  showModal();
 				this.x = this.xOrigin;
 				this.y = this.yOrigin;
 			}
 		}
-	}
+	}	
 } 
 
+let modal = document.querySelector(".modal");
+let yesButton = document.querySelector(".yes-button");
+let noButton = document.querySelector(".no-button")
+let noMessage = document.querySelector('.no-message');
 
+function showModal() {
+	modal.style.display = "block";				
+}
+
+function hideModal() {
+	modal.style.display = "none";
+}
+
+yesButton.onclick = function() {
+	hideModal();
+	noMessage.style.display = "none";
+	}
+
+noButton.onclick = function() {
+	noMessage.style.display = "block"
+}
 								// check for collision
 										// if player position collide with enemy
 								// check for game won
