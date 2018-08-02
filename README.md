@@ -1,7 +1,7 @@
 # Arcade Game
 
 Udacity's Frontend Nanodegree Arcade Game
-=========================================
+
 ## Where to Play
 You can play the game by downloading the file, unzipping and then loading the 'index.html' file in your browser of choice!
 
@@ -13,4 +13,4 @@ If hit, your player will automatically reset to their starting position.
 Using the arrow keys, guide your player acros the stone path to the river without being hit.
 
 ## Aknowledgments
-A special thanks to [Matthew Cranford] (https://matthewcranford.com/). His walkthrough on this project helped me immensly by pointing me in the right direction.
+A special thanks to [Matthew Cranford](https://matthewcranford.com/). His walkthrough on this project helped me immensly by pointing me in the right direction.
