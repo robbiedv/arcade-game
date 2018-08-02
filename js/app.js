@@ -71,12 +71,15 @@ class Hero {
 			this.y += 83;
 		}
 	}
-		
+// checks to see if player has come into contact with enemy
 	update() {
 	  	for(let enemy of allEnemies) {
+				// creates a 'kill box' around enemy and player
 			if(this.y === enemy.y && this.x < enemy.x + enemy.size && enemy.x < this.x + this.size) {
+				// resets player position if contact is made inside 'kill box'
 				this.x = this.xOrigin;
 				this.y = this.yOrigin;
+				// if player reaches river, show the game won modal and reset player position.
 			} else if (this.y < 63) {
 			  showModal();
 				this.x = this.xOrigin;
@@ -86,6 +89,7 @@ class Hero {
 	}	
 } 
 
+// functions for modal buttons
 let modal = document.querySelector(".modal");
 let yesButton = document.querySelector(".yes-button");
 let noButton = document.querySelector(".no-button")
@@ -107,15 +111,6 @@ yesButton.onclick = function() {
 noButton.onclick = function() {
 	noMessage.style.display = "block"
 }
-								// check for collision
-										// if player position collide with enemy
-								// check for game won
-										// if hero position on top tile 
-						// render()
-								// draw hero on current x y coor 
-								// update hero x y position to match keystrokes
-						//resetHero
-								// on collision or game won reset hero to original position
 
 // Now instantiate your objects.
 	const player = new Hero();
@@ -126,12 +121,6 @@ noButton.onclick = function() {
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [];
 allEnemies.push(enemy1, enemy2, enemy3, enemy4);
-// Place the player object in a variable called player
-
-
-
-// init allEnemies array
-// create and push new enemy to allEnemies array
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
