@@ -1,8 +1,8 @@
 // Enemies our player must avoid
-var Enemy = function(x, y, speed) {
+let Enemy = function(x, y, speed) {
 		this.x = x;
 		this.y = y;
-		this.size = 60;
+		this.size = 80;
 		this.speed = speed;
 		this.xOrigin = - 100;
     this.sprite = 'images/enemy-bug.png';
@@ -71,6 +71,7 @@ class Hero {
 			this.y += 83;
 		}
 	}
+	
 // checks to see if player has come into contact with enemy
 	update() {
 	  	for(let enemy of allEnemies) {
@@ -90,37 +91,38 @@ class Hero {
 } 
 
 // functions for modal buttons
-let modal = document.querySelector(".modal");
-let yesButton = document.querySelector(".yes-button");
-let noButton = document.querySelector(".no-button")
+let modal = document.querySelector('.modal');
+let yesButton = document.querySelector('.yes-button');
+let noButton = document.querySelector('.no-button')
 let noMessage = document.querySelector('.no-message');
 
 function showModal() {
-	modal.style.display = "block";				
+	modal.style.display = 'block';				
 }
 
 function hideModal() {
-	modal.style.display = "none";
+	modal.style.display = 'none';
 }
 
 yesButton.onclick = function() {
 	hideModal();
-	noMessage.style.display = "none";
+	noMessage.style.display = 'none';
 	}
 
 noButton.onclick = function() {
-	noMessage.style.display = "block"
+	noMessage.style.display = 'block';
 }
 
 // Now instantiate your objects.
 	const player = new Hero();
-	const enemy1 = new Enemy(-100, 63, 200);
-	const enemy2 = new Enemy(-100, 146, 250);
-	const enemy3 = new Enemy(-300, 146, 250);
-	const enemy4 = new Enemy(-100, 229, 100);
+
 // Place all enemy objects in an array called allEnemies
-let allEnemies = [];
-allEnemies.push(enemy1, enemy2, enemy3, enemy4);
+const allEnemies = [
+	new Enemy(-100, 63, 200),
+	new Enemy(-100, 146, 250),
+	new Enemy(-300, 146, 250),
+	new Enemy(-100, 229, 100),
+];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
