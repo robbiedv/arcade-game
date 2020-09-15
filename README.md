@@ -2,10 +2,8 @@
 
 Udacity's Frontend Nanodegree Arcade Game
 
-## Where to Play
-You can play the game [here](https://robbiedv.github.io/arcade-game/)
-
 ## How to Play
+You can play the game [here](https://robbiedv.github.io/arcade-game/)
 The point of the game is to win. You win by succesfully crossing the stone path to the river without being hit by the ladybugs.
 If hit, your player will automatically reset to their starting position.
 
